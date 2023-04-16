@@ -20,8 +20,8 @@ text_list = text.lower().replace(",", "").replace(".", "").split()
 final_list = {}
 for word in text_list:
     if word not in final_list:
-        final_list[word] = text_list.count(word)
-        print(final_list)
+        final_list.update(dict([(word, text_list.count(word))]))
+        print(final_list[word])
 for i, word in enumerate(sorted(final_list, key=final_list.get, reverse=True)[:10]):
     print(f'{i+1}: {word} {final_list[word]}')
 
